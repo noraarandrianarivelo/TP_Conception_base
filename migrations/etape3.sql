@@ -19,3 +19,8 @@ INSERT INTO commande_plat (id_commande, id_plat, quantite) values (1, 2, 1);
 INSERT INTO commande (date_commande) values (now());
 INSERT INTO commande_plat (id_commande, id_plat, quantite) values (2, 3, 5);
 INSERT INTO commande_plat (id_commande, id_plat, quantite) values (2, 4, 2);
+
+-- Commande 3
+INSERT INTO commande (date_commande) values (now());
+INSERT INTO commande_plat (id_commande, id_plat, quantite) values (3, 3, 2);
+INSERT INTO commande_plat (id_commande, id_plat, quantite) values (3, 4, 3);

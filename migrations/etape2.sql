@@ -20,3 +20,5 @@ UPDATE plat set id_categorie = (SELECT id_categorie FROM categorie WHERE libelle
 UPDATE plat set id_categorie = (SELECT id_categorie FROM categorie WHERE libelle = 'Boissons') WHERE nom IN ('Ranon ampango');
 
 ALTER TABLE plat ALTER COLUMN id_categorie set not null;
+
+INSERT INTO categorie (libelle) VALUES ('Autre');

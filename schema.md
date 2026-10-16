@@ -23,3 +23,9 @@ COMMANDE(**id_commande**, date_commande) (nouveau)
 COMMANDE_PLAT(**id_commande_plat**, #id_commande, #id_plat, quantite) (nouveau)
 
 > J'ai mis la quantite dans la table COMMANDE_PLAT 
+
+## Etape 4
+CLIENT(**id_client**, nom_client)
+COMMANDE (**id_commande**, date_commande, #id_client?)
+
+> Non, ma cle etrangere n'est pas NOT NULL car il est possible que id_client soit vide. Pour ne perdre aucune commande, il faut utiliser COMMANDE LEFT JOIN CLIENT
