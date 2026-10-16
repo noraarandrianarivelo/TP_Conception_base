@@ -17,3 +17,9 @@ Soupe tongotr'omby| soupe | 10000|
 Soupe tamatave | SOUPE | 8000|
 
 -> soupe et SOUPE sont 2 categorie differente
+
+## Etape 3
+COMMANDE(**id_commande**, date_commande) (nouveau)
+COMMANDE_PLAT(**id_commande_plat**, #id_commande, #id_plat, quantite) (nouveau)
+
+> J'ai mis la quantite dans la table COMMANDE_PLAT 
