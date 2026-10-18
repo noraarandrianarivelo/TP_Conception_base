@@ -25,7 +25,15 @@ COMMANDE_PLAT(**id_commande_plat**, #id_commande, #id_plat, quantite) (nouveau)
 > J'ai mis la quantite dans la table COMMANDE_PLAT 
 
 ## Etape 4
-CLIENT(**id_client**, nom_client)
-COMMANDE (**id_commande**, date_commande, #id_client?)
+CLIENT(**id_client**, nom_client) (nouveau)
+COMMANDE (**id_commande**, date_commande, #id_client?) (nouveau)
 
 > Non, ma cle etrangere n'est pas NOT NULL car il est possible que id_client soit vide. Pour ne perdre aucune commande, il faut utiliser COMMANDE LEFT JOIN CLIENT
+
+## Etape 5
+SERVEUR(**id_serveur**, nom_serveur) (nouveau)
+TABLES(**id_table**) (nouveau)
+COMMANDE (**id_commande**, date_commande, #id_client?, #id_serveur, #id_table?) (modifie)
+
+> Une table de la salle et une commande sont deux choses differentes parce que une commande correspond aux achats a la table, et la table peut posseder plusieurs commandes.
+> Le nom table pose probleme en sql car il y a une ambiguite entre table (sql) et table (nom de table)
