@@ -20,3 +20,16 @@ LEFT JOIN commande_plat ON commande_plat.id_commande = commande.id_commande
 LEFT JOIN plat ON plat.id_plat = commande_plat.id_plat 
 GROUP BY serveur.id_serveur, serveur.nom_serveur;
 
+-- Etape 6
+SELECT commande_plat.id_commande, sum(plat.prix * commande_plat.quantite) as total_commande FROM commande_plat JOIN plat on plat.id_plat = commande_plat.id_plat group by commande_plat.id_commande;
+-- id_commande | total_montant
+
+SELECT id_commande, sum(montant) as total_paye FROM paiement GROUP BY id_commande;
+-- id_commande | total_paye
+
+SELECT c.id_commande, COALESCE(c.total_commande,0) AS total_montant, COALESCE(p.total_paye,0) AS total_paye, (COALESCE(c.total_commande,0) - COALESCE(p.total_paye,0)) AS reste_a_paye FROM 
+    (SELECT commande_plat.id_commande, sum(plat.prix * commande_plat.quantite) as total_commande FROM commande_plat JOIN plat on plat.id_plat = commande_plat.id_plat group by commande_plat.id_commande) as c
+    LEFT JOIN 
+    (SELECT id_commande, sum(montant) as total_paye FROM paiement GROUP BY id_commande) as p
+    ON c.id_commande = p.id_commande
+    WHERE (COALESCE(c.total_commande,0) - COALESCE(p.total_paye,0)) > 0;

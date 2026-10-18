@@ -37,3 +37,7 @@ COMMANDE (**id_commande**, date_commande, #id_client?, #id_serveur, #id_table?) 
 
 > Une table de la salle et une commande sont deux choses differentes parce que une commande correspond aux achats a la table, et la table peut posseder plusieurs commandes.
 > Le nom table pose probleme en sql car il y a une ambiguite entre table (sql) et table (nom de table)
+
+## Etape 6
+MODE_PAIEMENT(**id_mode_paiement**, libelle) (nouveau)
+PAIEMENT(**id_paiement**, #id_commande, #id_mode_paiement, montant, reference)
